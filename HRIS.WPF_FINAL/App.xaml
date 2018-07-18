@@ -1,0 +1,25 @@
+﻿<Application x:Class="HRIS.View.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            
+             xmlns:local="clr-namespace:HRIS.Control"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <!-- For providing staff list to listbox on main screen -->
+        <local:StaffController x:Key="boss"/>
+        <ObjectDataProvider x:Key="staffList"
+                            ObjectInstance="{StaticResource boss}"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
+
+        <!-- For providing unit list to listbox on unit list screen -->
+        <local:UnitController x:Key="UnitBoss"/>
+        <ObjectDataProvider x:Key="unitList"
+                            ObjectInstance="{StaticResource UnitBoss}"
+                            MethodName="GetViewableList">
+        </ObjectDataProvider>
+
+    </Application.Resources>
+</Application>
